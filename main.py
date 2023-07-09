@@ -28,17 +28,26 @@ while True: #loop principal
         if event.type == pygame.QUIT: #caso o evento seja QUIT, fechar o jogo
             pygame.quit()
             exit()
+        if event.type == pygame.MOUSEMOTION:
+            if player_rect.collidepoint(event.pos):
+                print('ai')
     
     screen.blit(sky_surface, (0, 0)) #colocar o test_superficie no na tela, em tal posição ()
     screen.blit(ground_surface, (0, 300))
     screen.blit(text_surface, (300, 50))
    
-    snail_rect.left -= 3
+    snail_rect.left -= 3 #mover a lesma
     if snail_rect.right < 0:
-        snail_rect.left = 800
+        snail_rect.left = 800 #retornar a lesma
     screen.blit(snail_surface, (snail_rect))
-    player_rect.right += 1 
+    player_rect.right += 1  #mover o player
     screen.blit(player_surf, (player_rect))
+
+    #if player_rect.colliderect(snail_rect): #checa se existe colisão entre o player e a lesma
+    #mouse = pygame.mouse.get_pos()
+    #if player_rect.collidepoint((mouse)):
+     #   print('ai') 
+
 
 
     pygame.display.update() #atualizar o display
