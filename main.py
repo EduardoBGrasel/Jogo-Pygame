@@ -17,12 +17,6 @@ def collision_spite():
         return False
     else:
         return True
-
-
-
-
-
-
     
 
 pygame.init() #iniciar o pygame
