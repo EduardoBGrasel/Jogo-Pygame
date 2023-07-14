@@ -70,6 +70,9 @@ pygame.time.set_timer(snail_animation_timer, 500)
 fly_animation_timer = pygame.USEREVENT + 3
 pygame.time.set_timer(fly_animation_timer, 200)
 
+bg_Music = pygame.mixer.Sound('audio/music.wav')
+bg_Music.set_volume(0.4)
+bg_Music.play()
 
 
 
@@ -80,7 +83,7 @@ while True: #loop principal
             exit()                           
         
         else: #resetar o jogo
-            if event.type == pygame.KEYDOWN:
+            if event.type == pygame.KEYDOWN and game_active == False:
                 if event.key == pygame.K_SPACE:
                     game_active = True
                     start_time = int(pygame.time.get_ticks() / 1000)

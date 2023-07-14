@@ -12,11 +12,15 @@ class Player(pygame.sprite.Sprite): #cria uma classe sprite para o player
         self.image = self.player_walk[self.player_index]
         self.rect = self.image.get_rect(midbottom = (80, 300)) #posição do player
         self.gravity = 0 #gravidade
+
+        self.jump_sound = pygame.mixer.Sound('audio/jump.mp3')
+        self.jump_sound.set_volume(0.4)
     
     def player_input(self): #fazer o jogador pular caso aperte espaço
         key = pygame.key.get_pressed()
         if key[pygame.K_SPACE] and self.rect.bottom == 300:
             self.gravity = -20
+            self.jump_sound.play()
     
     def apply_gravity(self): #aplicar gravidade no jogo
         self.gravity += 1
